@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       # redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT']}&scope=repo" if !logged_in?
       if !logged_in?
         github = GithubService.new
-        github.authenticate!(ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_CLIENT_SECRET'], params[:code])
+        github.authenticate!(ENV['GITHUB_CLIENT'], ENV['GITHUB_SECRET'], params[:code])
       end
     end
 
